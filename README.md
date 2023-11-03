@@ -1,6 +1,11 @@
 # Snake
 
-由 [ikitsuchi](https://github.com/ikitsuchi/) 的 [minesweeper](https://github.com/ikitsuchi/minesweeper) 启发而来。
+简单而且简陋的贪吃蛇小游戏，由 [minesweeper](https://github.com/ikitsuchi/minesweeper) 启发而来。
+
+<p align="center">
+  <img height=250 src="./images/gaming_1.png">
+  <img height=250 src="./images/gaming_2.png">
+</p>
 
 ## 依赖
 
