@@ -25,7 +25,7 @@ Snake snake;
 int main(void) {
 #ifdef SIMULATE_ON_PC
     gui_init();
-    // just for testing
+start_entry:
     map_init(&map);
     snake_init(&snake, &map);
     map_update_food(&map);
@@ -40,7 +40,7 @@ int main(void) {
             } else {
                 if (event.type == SDL_KEYDOWN) {
                     if (event.key.keysym.sym == SDLK_r) {
-                        // TODO: 重新开始
+                        goto start_entry;
                     } else if (event.key.keysym.sym == SDLK_q) {
                         alive = false;
                     } else {
