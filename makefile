@@ -4,6 +4,8 @@ CFLAGS=-std=c99 -O2
 simulate=
 ifdef simulate
 	CFLAGS+=-DSIMULATE_ON_PC
+	LDLIBS=-lSDL2
+
 	sdl_or_vga=sdl_wrapper.h
 else
 	CFLAGS+=--target=riscv32-unknown-unknown
@@ -19,8 +21,6 @@ else
 
 	sdl_or_vga=vga.h
 endif
-
-LDLIBS=-lSDL2
 
 objects=main.o map.o snake.o gui.o sdl_wrapper.o random.o display.o
 
