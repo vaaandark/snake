@@ -40,9 +40,12 @@ static Position snake_tail(Snake *s) {
 }
 
 SnakeState snake_move(Snake *s, Map *m, Movement move) {
+    if (move == STAY_STILL) {
+        return ALIVE;
+    }
     Position head = snake_head(s);
     static const uint16_t direction[][2] =
-        {{-1, 0}, {1, 0}, {0, -1}, {0, 1}, {0, 0}};
+        {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     uint16_t x = head.x + direction[move][0];
     uint16_t y = head.y + direction[move][1];
     // eat the food?

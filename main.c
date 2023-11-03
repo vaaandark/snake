@@ -35,41 +35,43 @@ start_entry:
     SDL_Event event;
     while (alive) {
         while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
+            if (event.type == SDL_QUIT) {  // quit
                 alive = false;
             } else {
                 if (event.type == SDL_KEYDOWN) {
-                    if (event.key.keysym.sym == SDLK_r) {
-                        goto start_entry;
-                    } else if (event.key.keysym.sym == SDLK_q) {
-                        alive = false;
-                    } else {
-                        switch (event.key.keysym.sym) {
-                            case SDLK_w:
-                            case SDLK_UP:
-                                if (move != DOWN) {
-                                    move = UP;
-                                }
-                                break;
-                            case SDLK_s:
-                            case SDLK_DOWN:
-                                if (move != UP) {
-                                    move = DOWN;
-                                }
-                                break;
-                            case SDLK_a:
-                            case SDLK_LEFT:
-                                if (move != RIGHT) {
-                                    move = LEFT;
-                                }
-                                break;
-                            case SDLK_d:
-                            case SDLK_RIGHT:
-                                if (move != LEFT) {
-                                    move = RIGHT;
-                                }
-                                break;
-                        }
+                    switch (event.key.keysym.sym) {
+                        case SDLK_q:  // quit
+                            alive = false;
+                            break;
+                        case SDLK_r:  // restart
+                            goto start_entry;
+                        case SDLK_p:  // pause
+                            move = STAY_STILL;
+                            break;
+                        case SDLK_w:
+                        case SDLK_UP:
+                            if (move != DOWN) {
+                                move = UP;
+                            }
+                            break;
+                        case SDLK_s:
+                        case SDLK_DOWN:
+                            if (move != UP) {
+                                move = DOWN;
+                            }
+                            break;
+                        case SDLK_a:
+                        case SDLK_LEFT:
+                            if (move != RIGHT) {
+                                move = LEFT;
+                            }
+                            break;
+                        case SDLK_d:
+                        case SDLK_RIGHT:
+                            if (move != LEFT) {
+                                move = RIGHT;
+                            }
+                            break;
                     }
                 }
             }
@@ -85,5 +87,6 @@ start_entry:
     sdl_drop();
 
 #else
+// TODO
 #endif
 }
