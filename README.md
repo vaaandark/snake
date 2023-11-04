@@ -2,10 +2,7 @@
 
 简单而且简陋的贪吃蛇小游戏，由 [tetris](https://github.com/enter-tainer/tetris) 和 [minesweeper](https://github.com/ikitsuchi/minesweeper) 启发而来。
 
-<p align="center">
-  <img height=250 src="./images/gaming_1.png">
-  <img height=250 src="./images/gaming_2.png">
-</p>
+![demo](./images/demo.gif)
 
 ## 依赖
 
