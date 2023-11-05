@@ -48,14 +48,6 @@ SnakeState snake_move(Snake *s, Map *m, Movement move) {
         {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     uint16_t x = head.x + direction[move][0];
     uint16_t y = head.y + direction[move][1];
-    // eat the food?
-    if (m->grids[x][y] == FOOD) {
-        map_update_food(m);
-    } else {
-        Position tail = snake_tail(s);
-        m->grids[tail.x][tail.y] = NOTHING;
-        snake_pop_back(s);
-    }
     // hit the wall?
     if (x < 0 || x >= GRID_VERTICAL_NUM || y < 0 || y >= GRID_HORIZONTAL_NUM) {
         return DEAD;
@@ -67,6 +59,14 @@ SnakeState snake_move(Snake *s, Map *m, Movement move) {
             return DEAD;
         }
         i = (i + 1 + GRID_TOTAL) % GRID_TOTAL;
+    }
+    // eat the food?
+    if (m->grids[x][y] == FOOD) {
+        map_update_food(m);
+    } else {
+        Position tail = snake_tail(s);
+        m->grids[tail.x][tail.y] = NOTHING;
+        snake_pop_back(s);
     }
     Position pos = {
         .x = x,

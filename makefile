@@ -1,10 +1,19 @@
 CC=clang
-CFLAGS=-std=c99 -O2
+CFLAGS=-std=c99
 
 simulate=
+debug=
 ifdef simulate
 	CFLAGS+=-DSIMULATE_ON_PC
 	LDLIBS=-lSDL2
+
+ifdef debug
+	CFLAGS+=-fsanitize=address
+	LDFLAGS+=-fsanitize=address
+	CFLAGS+=-g -O0
+else
+	CFLAGS+=-O3
+endif
 
 	sdl_or_vga=sdl_wrapper.h
 else

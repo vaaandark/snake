@@ -16,7 +16,7 @@
 - 在 x86_64 机器上运行：
 
 ```console
-$ make simulate=true
+$ make simulate=on
 $ ./main
 ```
 
